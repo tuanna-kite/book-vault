@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Inter } from 'next/font/google';
-import Navbar from '@/components/navbar';
-import Header from '@/components/header';
-import MobileHeader from '@/components/ui/mobile-header';
+import { ClerkProvider } from '@clerk/nextjs';
+import ToasterProvider from '@/components/providers/toaster-provider';
 
 export const metadata: Metadata = {
   title: 'BookVault',
@@ -20,8 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={interfont.className}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang='en'>
+        <body className={interfont.className}>
+          <ToasterProvider />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

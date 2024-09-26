@@ -3,8 +3,13 @@ import Image from 'next/image';
 import React from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { auth } from '@clerk/nextjs/server';
+import { UserButton } from '@clerk/nextjs';
+import Link from 'next/link';
 
 const Header = () => {
+  const { userId } = auth();
+
   return (
     <div className='hidden md:block fixed inset-0 top-0 md:top-[32px] h-[56px] bg-white z-50 border-b border-b-black/10'>
       <div className='flex items-center justify-between max-w-5xl px-8 xl:px-0 w-full mx-auto py-2 h-[56px]'>
@@ -21,10 +26,20 @@ const Header = () => {
             <Search className='text-slate-400' />
           </div>
         </div>
-        <div className='w-48 flex justify-between'>
-          <Button variant='ghost'>Đăng nhập</Button>
-          <Button variant='outline'>Đăng ký</Button>
-        </div>
+        {userId ? (
+          <div>
+            <UserButton />
+          </div>
+        ) : (
+          <div className='w-48 flex justify-between'>
+            <Link href='/sign-in'>
+              <Button variant='ghost'>Đăng nhập</Button>
+            </Link>
+            <Link href='/sign-up'>
+              <Button variant='outline'>Đăng ký</Button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

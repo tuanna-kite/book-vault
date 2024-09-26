@@ -7,8 +7,8 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
     <div className='w-screen h-screen'>
       <AdminSidebar />
       <AdminHeader />
-      <div className='fixed pl-[251px] pt-[60px] h-full w-full bg-primary-light z-0'>
-        <div className='w-full p-6'>{children}</div>
+      <div className='fixed pl-[251px] pt-[60px] h-full w-full bg-primary-light z-0 overflow-y-auto'>
+        <div className='w-full p-6 px-10'>{children}</div>
       </div>
     </div>
   );

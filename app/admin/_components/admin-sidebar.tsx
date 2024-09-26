@@ -60,7 +60,10 @@ const AdminSidebar = () => {
         <div className='mt-6 space-y-6'>
           {adminRoutes.map((route) => {
             const { icon: Icon } = route;
-            const isFocused = pathname === route.route;
+            let isFocused = pathname.includes(route.route);
+            if (pathname !== '/admin' && route.route === '/admin') {
+              isFocused = false;
+            }
 
             return (
               <div key={route.route}>

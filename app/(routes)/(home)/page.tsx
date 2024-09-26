@@ -3,7 +3,6 @@ import Hero from './_components/hero';
 import TrendingCard from './_components/trending-card';
 import Benefit from './_components/benefit';
 import Procedure from './_components/procedure';
-import Footer from '../../../components/footer';
 
 export default function Home() {
   return (
