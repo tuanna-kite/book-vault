@@ -30,6 +30,7 @@ const EditCategorySchema = z.object({
 });
 
 const EditCategoryPage = ({ params }: { params: { slug: string } }) => {
+  const [loading, setLoading] = React.useState(true);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof EditCategorySchema>>({
@@ -44,6 +45,7 @@ const EditCategoryPage = ({ params }: { params: { slug: string } }) => {
   useEffect(() => {
     async function fetchCategory() {
       try {
+        setLoading(true);
         const { data } = await axios.get<Categories>(
           `/api/categories/${params.slug}`
         );
@@ -55,6 +57,8 @@ const EditCategoryPage = ({ params }: { params: { slug: string } }) => {
         });
       } catch (error) {
         toast.error('An error occurred. Please try again.');
+      } finally {
+        setLoading(false);
       }
     }
     fetchCategory();
@@ -75,6 +79,10 @@ const EditCategoryPage = ({ params }: { params: { slug: string } }) => {
       toast.error('An error occurred. Please try again.');
     }
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>

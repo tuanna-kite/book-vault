@@ -55,17 +55,17 @@ export function DataTable<TData, TValue>({
       <div className='flex items-center justify-between'>
         <div className='flex items-center py-1 px-2 rounded-xl w-full max-w-sm border'>
           <Input
-            placeholder='Tìm kiếm danh mục...'
-            value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
+            placeholder='Tìm kiếm sách...'
+            value={(table.getColumn('title')?.getFilterValue() as string) ?? ''}
             onChange={(event) =>
-              table.getColumn('name')?.setFilterValue(event.target.value)
+              table.getColumn('title')?.setFilterValue(event.target.value)
             }
             className='max-w-sm ring-0 border-0 shadow-none focus-visible:ring-0'
           />
           <Search className='text-slate-400 mr-2' size={20} />
         </div>
 
-        <Link href='/admin/categories/create'>
+        <Link href='/admin/products/create'>
           <Button>
             <Plus className='text-white mr-2' size={18} />
             <span>Thêm mới</span>

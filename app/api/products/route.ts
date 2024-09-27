@@ -10,8 +10,21 @@ export async function GET() {
       return new NextResponse('Unauthorized', { status: 401 });
     }
     // TODO: Get Books
+    const books = await db.books.findMany({
+      include: {
+        category: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      },
+      orderBy: {
+        title: 'asc',
+      },
+    });
 
-    return NextResponse.json(null);
+    return NextResponse.json(books);
   } catch (error) {
     console.log('CATEGORIES:POST', error);
     return new NextResponse('An error occurred', { status: 500 });

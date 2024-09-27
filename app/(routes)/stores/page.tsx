@@ -9,9 +9,13 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination';
 import BookCard from '@/components/book-card';
-import { BOOKS } from '@/mockup/books';
+import { db } from '@/lib/db';
 
-const StorePage = () => {
+// TODO: Handle pagination
+// TODO: Handle search
+
+const StorePage = async () => {
+  const books = await db.books.findMany({});
   return (
     <div className='pt-[56px] md:pt-[88px]'>
       <div className='w-full max-w-5xl mx-auto px-8 xl:px-0'>
@@ -33,8 +37,8 @@ const StorePage = () => {
           </div>
           <div className='flex-1'>
             <div className='grid grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-8'>
-              {BOOKS.map((book, index) => (
-                <BookCard key={book.title + String(index)} {...book} />
+              {books.map((book, index) => (
+                <BookCard key={book.id} data={book} />
               ))}
             </div>
             <div className='w-full mt-10'>

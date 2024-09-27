@@ -54,9 +54,11 @@ const AdminSidebar = () => {
   return (
     <div className='bg-white shadow-md h-screen w-[250px] fixed top-0 left-0 z-50'>
       <div className='px-4'>
-        <div className='w-[204px] pr-12 h-[60px] flex items-center'>
-          <Image src='/logo.png' alt='Logo' width={204} height={48} />
-        </div>
+        <Link href='/admin'>
+          <div className='w-[204px] pr-12 h-[60px] flex items-center'>
+            <Image src='/logo.png' alt='Logo' width={204} height={48} />
+          </div>
+        </Link>
         <div className='mt-6 space-y-6'>
           {adminRoutes.map((route) => {
             const { icon: Icon } = route;

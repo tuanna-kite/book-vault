@@ -1,35 +1,36 @@
+import { Books } from '@prisma/client';
 import { UsdCoin } from 'iconsax-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 export interface BookCardProps {
-  imageUrl: string;
-  title: string;
-  author: string;
-  price: number;
+  data: Books;
 }
 
-const BookCard = ({ imageUrl, title, author, price }: BookCardProps) => {
+const BookCard = ({ data }: BookCardProps) => {
   return (
-    <div className='space-y-4'>
-      <div className='w-full'>
-        <Image
-          src={imageUrl}
-          width={256}
-          height={348}
-          alt={title}
-          className='w-full'
-        />
-      </div>
-      <div className='w-full flex flex-col items-center space-y-2'>
-        <h3 className='md:text-lg lg:text-xl font-semibold'>{title}</h3>
-        <p className='text-gray-500 text-sm'>{author}</p>
-        <div className='flex space-x-1'>
-          <span className='text-primary font-semibold'>{price}</span>
-          <UsdCoin className='text-coin' variant='Bold' />
+    <Link href={`/stores/${data.slug}`}>
+      <div className='space-y-4'>
+        <div className='w-full'>
+          <Image
+            src={data.cover!}
+            width={256}
+            height={348}
+            alt={data.title}
+            className='w-full aspect-square object-contain'
+          />
+        </div>
+        <div className='w-full flex flex-col items-center space-y-2'>
+          <h3 className='md:text-lg lg:text-xl font-semibold'>{data.title}</h3>
+          <p className='text-gray-500 text-sm'>{data.author}</p>
+          <div className='flex space-x-1'>
+            <span className='text-primary font-semibold'>{data.price}</span>
+            <UsdCoin className='text-coin' variant='Bold' />
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

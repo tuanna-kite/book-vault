@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactPage = () => {
   return (
-    <div className='pt-[56px] md:pt-[88px] pb-10 md:h-[57vh]'>
+    <div className='pt-[56px] md:pt-[88px] pb-10'>
       <div className='max-w-4xl mx-auto space-y-8 mt-16 font-light px-8 lg:px-0'>
         <h2 className='text-3xl font-semibold'>Liên hệ</h2>
         <div>

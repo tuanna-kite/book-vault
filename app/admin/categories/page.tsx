@@ -12,22 +12,33 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import toast from 'react-hot-toast';
 
 type CategoriesWithBooks = Categories & { books: string[] };
 
-// TODO: Add loading when fetching data
-// TODO: Add error handling
 // TODO: Add pagination
 const AdminCategoriesPage = () => {
   const [categories, setCategories] = useState<CategoriesWithBooks[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchCategories() {
-      const response = await axios.get('/api/categories');
-      setCategories(response.data);
+      try {
+        setLoading(true);
+        const response = await axios.get('/api/categories');
+        setCategories(response.data);
+      } catch (error) {
+        toast.error('An error occurred. Please try again.');
+      } finally {
+        setLoading(false);
+      }
     }
     fetchCategories();
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className='space-y-6'>
