@@ -56,6 +56,7 @@ const EditCategoryPage = ({ params }: { params: { slug: string } }) => {
           description: data.description,
         });
       } catch (error) {
+        console.log('CATEGORIES:GET', error);
         toast.error('An error occurred. Please try again.');
       } finally {
         setLoading(false);

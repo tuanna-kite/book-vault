@@ -28,6 +28,7 @@ const AdminCategoriesPage = () => {
         const response = await axios.get('/api/categories');
         setCategories(response.data);
       } catch (error) {
+        console.log('CATEGORIES:GET', error);
         toast.error('An error occurred. Please try again.');
       } finally {
         setLoading(false);
