@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { db } from '@/lib/db';
 import { UsdCoin } from 'iconsax-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const BookDetailPage = async ({ params }: { params: { slug: string } }) => {
@@ -70,7 +71,9 @@ const BookDetailPage = async ({ params }: { params: { slug: string } }) => {
               <Button variant='outline' size='lg'>
                 Thêm vào giỏ hàng
               </Button>
-              <Button size='lg'>Mua ngay</Button>
+              <Link href={`/order/checkout/books/${book.id}`}>
+                <Button size='lg'>Mua ngay</Button>
+              </Link>
             </div>
           </div>
         </div>

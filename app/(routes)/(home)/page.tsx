@@ -14,7 +14,7 @@ export default async function Home() {
       <Hero />
       <section className='py-10 px-8 xl:px-0'>
         <div className='w-full space-y-4 max-w-5xl mx-auto'>
-          <h2 className='text-3xl'>Xu hướng</h2>
+          <h2 className='text-3xl'>Trending</h2>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
             {books.map((book) => (
               <TrendingCard key={book.id} data={book} />

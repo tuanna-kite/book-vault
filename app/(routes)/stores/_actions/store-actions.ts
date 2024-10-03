@@ -17,8 +17,6 @@ export async function getProducts({
   limit = 9,
 }: FilterProductParams) {
   try {
-    console.log('searchBook:', searchBook);
-
     const books = await db.books.findMany({
       include: {
         category: {
@@ -60,7 +58,6 @@ export async function getProducts({
           : undefined,
       },
     });
-    console.log(countBooks);
 
     return {
       data: { items: books as Books[], total: countBooks, currentPage: page },

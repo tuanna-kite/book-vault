@@ -12,7 +12,7 @@ const BookCard = ({ data }: BookCardProps) => {
   return (
     <Link href={`/stores/${data.slug}`}>
       <div className='space-y-4'>
-        <div className='w-full'>
+        <div className='w-full border bg-black'>
           <Image
             src={data.cover!}
             width={256}

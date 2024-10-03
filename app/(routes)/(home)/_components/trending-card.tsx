@@ -1,35 +1,38 @@
 import { Books } from '@prisma/client';
 import { UsdCoin } from 'iconsax-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 interface TrendingCardProps {
   data: Books;
 }
 
-const TrendingCard = ({
-  data
-}: TrendingCardProps) => {
+const TrendingCard = ({ data }: TrendingCardProps) => {
   return (
-    <div className='bg-gray-100 p-5 flex space-x-8 md:space-x-4 rounded-2xl'>
-      <div className='flex-1'>
-        <Image
-          src={data.cover!}
-          alt={data.title}
-          width={165}
-          height={248}
-          className='w-full'
-        />
-      </div>
-      <div className='flex-1 flex flex-col justify-end space-y-2'>
-        <h3 className='md:text-lg lg:text-xl font-semibold'>{data.title}</h3>
-        <p className='text-gray-500 text-sm'>{data.author}</p>
-        <div className='flex space-x-1'>
-          <span className='text-primary font-semibold'>{data.price}</span>
-          <UsdCoin className='text-coin' variant='Bold' />
+    <Link href={`/stores/${data.slug}`} className='block'>
+      <div className='bg-gray-100 p-4 flex space-x-8 md:space-x-4 rounded-2xl'>
+        <div className='flex-1 aspect-square bg-black flex justify-center items-center lg:h-36 md:h-30'>
+          <Image
+            src={data.cover!}
+            alt={data.title}
+            width={248}
+            height={248}
+            className='w-full h-full object-contain'
+          />
+        </div>
+        <div className='flex-1 flex flex-col justify-end space-y-2 overflow-hidden'>
+          <h3 className='md:text-base lg:text-lg font-semibold w-full'>
+            {data.title}
+          </h3>
+          <p className='text-gray-500 text-sm'>{data.author}</p>
+          <div className='flex space-x-1'>
+            <span className='text-primary font-semibold'>{data.price}</span>
+            <UsdCoin className='text-coin' variant='Bold' />
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

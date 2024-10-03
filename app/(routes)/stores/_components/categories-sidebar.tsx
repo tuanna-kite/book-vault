@@ -1,25 +1,24 @@
 import React from 'react';
-import { getCategories } from '../_actions/store-actions';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import qs from 'querystring';
 import { X } from 'lucide-react';
+import { Categories } from '@prisma/client';
 
-const CategoriesSidebar = async ({
-  searchParams,
-}: {
+type CategoriesSidebarProps = {
   searchParams: { category?: string };
-}) => {
-  const { data: categories, error } = await getCategories();
-  if (error) {
-    return <div>Failed to load categories</div>;
-  }
+  categories: Categories[];
+};
 
+const CategoriesSidebar = ({
+  searchParams,
+  categories,
+}: CategoriesSidebarProps) => {
   const searchParamsWithoutCategory = { ...searchParams };
   delete searchParamsWithoutCategory.category;
 
   return (
-    <div className='hidden md:block w-1/4 space-y-4'>
+    <div className='space-y-2'>
       <div className='flex items-center space-x-4'>
         <h3 className='text-lg font-semibold'>Danh mục</h3>
         {searchParams.category && (

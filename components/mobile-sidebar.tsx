@@ -29,11 +29,15 @@ const MobileSidebar = () => {
           );
         })}
       </ul>
-      <div className='space-y-4'>
-        <Button className='w-full'>Đăng ký</Button>
-        <Button variant='outline' className='w-full'>
-          Đăng nhập
-        </Button>
+      <div className='flex flex-col space-y-4'>
+        <Link href='/sign-up'>
+          <Button className='w-full'>Đăng ký</Button>
+        </Link>
+        <Link href='/sign-up'>
+          <Button variant='outline' className='w-full'>
+            Đăng nhập
+          </Button>
+        </Link>
       </div>
     </div>
   );

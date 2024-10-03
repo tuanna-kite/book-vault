@@ -13,7 +13,7 @@ import { useSearchParams } from 'next/navigation';
 import { Books } from '@prisma/client';
 import toast from 'react-hot-toast';
 import { getProducts } from '../_actions/store-actions';
-import { Triangle } from 'react-loader-spinner';
+import { CirclesWithBar } from 'react-loader-spinner';
 
 const ProductGrid = () => {
   const [loading, setLoading] = useState(true);
@@ -22,7 +22,6 @@ const ProductGrid = () => {
   const pageParams = searchParams.get('page');
   const page = pageParams ? Number(pageParams) : 1;
   const searchBook = searchParams.get('search');
-
 
   const [nPages, setNPages] = useState(0);
   const [items, setItems] = useState<Books[]>([]);
@@ -55,14 +54,17 @@ const ProductGrid = () => {
   if (loading) {
     return (
       <div className='h-full flex-1 flex item-center justify-center'>
-        <Triangle
-          visible={true}
-          height='80'
-          width='80'
+        <CirclesWithBar
+          height='100'
+          width='100'
           color='#0056D2'
-          ariaLabel='triangle-loading'
+          outerCircleColor='#0056D2'
+          innerCircleColor='#0056D2'
+          barColor='#0056D2'
+          ariaLabel='circles-with-bar-loading'
           wrapperStyle={{}}
           wrapperClass=''
+          visible={true}
         />
       </div>
     );

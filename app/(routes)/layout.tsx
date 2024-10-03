@@ -1,7 +1,7 @@
 import Footer from '@/components/footer';
 import Header from '@/components/header';
+import MobileHeader from '@/components/mobile-header';
 import Navbar from '@/components/navbar';
-import MobileHeader from '@/components/ui/mobile-header';
 import React, { ReactNode } from 'react';
 
 const MainLayout = ({ children }: { children: ReactNode }) => {

@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
-const ProductSearch = () => {
+const ProductSearch = ({ show = true }) => {
   const [search, setSearch] = React.useState('');
 
   const router = useRouter();
@@ -18,8 +18,14 @@ const ProductSearch = () => {
   const onSearch = () => {
     router.push(`/stores?${qs.stringify({ ...currentSearch, search })}`);
   };
+
   return (
-    <div className='flex items-center w-[70%] min-w-80 mx-auto space-x-1 border border-gray-200 pr-3 rounded-lg'>
+    <div
+      className={cn(
+        'flex items-center md:w-[70%] md:min-w-80 w-full mx-auto space-x-1 border border-gray-200 pr-3 rounded-lg transition',
+        !show && 'hidden'
+      )}
+    >
       <Input
         className='flex-1 text-sm border-0 focus-visible:ring-0'
         type='text'
