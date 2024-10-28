@@ -27,6 +27,7 @@ const AdminProductPage = () => {
         const { data } = await axios.get('/api/products');
         setBooks(data);
       } catch (error) {
+        console.error('PRODUCTS:GET', error);
         toast.error('Lỗi khi lấy dữ liệu');
       } finally {
         setLoading(false);

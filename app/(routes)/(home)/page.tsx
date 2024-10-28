@@ -3,12 +3,11 @@ import Hero from './_components/hero';
 import TrendingCard from './_components/trending-card';
 import Benefit from './_components/benefit';
 import Procedure from './_components/procedure';
-import { db } from '@/lib/db';
+import { fetchHomeData } from '@/actions/home-actions';
 
 export default async function Home() {
-  const books = await db.books.findMany({
-    take: 3,
-  });
+  const { books = [] } = await fetchHomeData();
+
   return (
     <div>
       <Hero />

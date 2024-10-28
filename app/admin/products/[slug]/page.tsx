@@ -75,6 +75,7 @@ const EditProductPage = ({ params }: { params: { slug: string } }) => {
         });
         setUploadedCover(data.cover);
       } catch (error) {
+        console.log('PRODUCTS:GET', error);
         toast.error('An error occurred. Please try again.');
       }
     }

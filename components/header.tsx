@@ -5,8 +5,10 @@ import { auth } from '@clerk/nextjs/server';
 import { UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import ProductSearch from './product-search';
+import { Chart } from 'iconsax-react';
+import TopupForm from './topup-form';
 
-const Header = () => {
+const Header = async () => {
   const { userId } = auth();
 
   return (
@@ -21,12 +23,18 @@ const Header = () => {
           <ProductSearch />
         </div>
         {userId ? (
-          <div>
+          <div className='flex items-center space-x-2'>
+            <TopupForm size='sm' userId={userId} />
+            <Link href='/order/history'>
+              <Button variant='ghost'>
+                <Chart size={20} className='text-gray-500 hover:text-primary' />
+              </Button>
+            </Link>
             <UserButton />
           </div>
         ) : (
           <div className='w-48 flex justify-between'>
-            <Link href='/sign-in'>
+            <Link href='/sign-in' className='mr-2'>
               <Button variant='ghost'>Đăng nhập</Button>
             </Link>
             <Link href='/sign-up'>

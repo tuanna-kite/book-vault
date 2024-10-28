@@ -23,7 +23,7 @@ const BookDetailPage = async ({ params }: { params: { slug: string } }) => {
   return (
     <div className='pt-[56px] md:pt-[88px] w-full'>
       <div className='w-full max-w-5xl mx-auto px-8 xl:px-0'>
-        <div className='flex space-x-8 py-12'>
+        <div className='flex flex-col md:flex-row md:space-x-8 space-y-6 md:space-y-0 py-12'>
           <div>
             <Image
               src={book.cover!}
@@ -33,7 +33,7 @@ const BookDetailPage = async ({ params }: { params: { slug: string } }) => {
               className='border w-96'
             />
           </div>
-          <div className='space-y-3 flex flex-col'>
+          <div className='space-y-4 flex flex-col'>
             <h3 className='text-2xl font-semibold'>{book.title}</h3>
             <div className='flex space-x-1 items-center'>
               <span className='text-primary font-semibold text-xl'>
@@ -41,38 +41,45 @@ const BookDetailPage = async ({ params }: { params: { slug: string } }) => {
               </span>
               <UsdCoin variant='Bold' className='text-coin' />
             </div>
-            <div className='space-y-1'>
-              <div className='font-semibold'>Thông tin</div>
-              <p>
-                <span className='text-gray-500 mr-2'>Tác giả:</span>
-                {book.author}
-              </p>
-              <p>
-                <span className='text-gray-500 mr-2'>NXB:</span>
-                {book.publisher}
-              </p>
+            <div className='flex space-x-4'>
+              <div className='space-y-1 flex-1'>
+                <div className='font-semibold'>Thông tin</div>
+                <p>
+                  <span className='text-gray-500 mr-2'>Tác giả:</span>
+                  {book.author}
+                </p>
+                <p>
+                  <span className='text-gray-500 mr-2'>NXB:</span>
+                  {book.publisher}
+                </p>
+              </div>
+              <div className='space-y-1'>
+                <div className='font-semibold'>Chi tiết</div>
+                <p>
+                  <span className='text-gray-500 mr-2'>Tình trạng:</span>
+                  <span className='text-green-700 px-2 py-1.5 text-sm font-semibold rounded-md'>
+                    Mới
+                  </span>
+                </p>
+                <p>
+                  <span className='text-gray-500 mr-2'>Kho:</span>
+                  <span className=' text-green-700 px-2 py-1.5 text-sm font-semibold rounded-md'>
+                    Còn hàng
+                  </span>
+                </p>
+              </div>
             </div>
-            <div className='space-y-1'>
-              <div className='font-semibold'>Chi tiết</div>
-              <p>
-                <span className='text-gray-500 mr-2'>Tình trạng:</span>
-                <span className='text-green-700 px-2 py-1.5 text-sm font-semibold rounded-md'>
-                  Mới
-                </span>
-              </p>
-              <p>
-                <span className='text-gray-500 mr-2'>Kho:</span>
-                <span className=' text-green-700 px-2 py-1.5 text-sm font-semibold rounded-md'>
-                  Còn hàng
-                </span>
-              </p>
-            </div>
-            <div className='space-x-4 flex-1  flex items-end'>
-              <Button variant='outline' size='lg'>
+            <div className='space-x-4 pt-6 md:pt-12'>
+              {/* <Button variant='outline' size='lg'>
                 Thêm vào giỏ hàng
-              </Button>
-              <Link href={`/order/checkout/books/${book.id}`}>
-                <Button size='lg'>Mua ngay</Button>
+              </Button> */}
+              <Link
+                href={`/order/checkout/books/${book.id}`}
+                className='block w-full md:w-80'
+              >
+                <Button size='lg' className='w-full'>
+                  Mua ngay
+                </Button>
               </Link>
             </div>
           </div>

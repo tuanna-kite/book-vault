@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { Books, Categories } from '@prisma/client';
 import { ColumnDef } from '@tanstack/react-table';
-import { ArrowUpDown, Pencil, Trash } from 'lucide-react';
+import { ArrowUpDown, Pencil } from 'lucide-react';
 import moment from 'moment';
 import Image from 'next/image';
 import Link from 'next/link';

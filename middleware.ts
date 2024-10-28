@@ -1,4 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { db } from './lib/db';
+import { redirect } from 'next/navigation';
 
 const isPublicRoute = createRouteMatcher([
   '/',
@@ -12,7 +14,7 @@ const isPublicRoute = createRouteMatcher([
   '/api/uploadthing(.*)',
 ]);
 
-export default clerkMiddleware((auth, request) => {
+export default clerkMiddleware(async (auth, request) => {
   if (!isPublicRoute(request)) {
     auth().protect();
   }

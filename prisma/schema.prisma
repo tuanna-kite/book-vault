@@ -16,9 +16,11 @@ datasource db {
 }
 
 model Profile {
-  id        String   @id @default(uuid())
-  name      String
-  admin     Boolean  @default(false)
+  id     String  @id @default(uuid())
+  userId String  @unique
+  admin  Boolean @default(false)
+  bcoin  Float   @default(0)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -54,7 +56,59 @@ model Books {
   isTrending  Boolean    @default(false)
   isHot       Boolean    @default(false)
   isPopular   Boolean    @default(false)
+  Orders      Orders[]
 
   @@index([categoryId], name: "categoryId")
   @@map("books")
+}
+
+model Orders {
+  id     String @id @default(uuid())
+  userId String
+  bookId String
+  book   Books  @relation(fields: [bookId], references: [id])
+
+  fullname String
+  address  String
+  phone    String
+  district String
+  city     String
+  email    String?
+
+  status    String   @default("pending")
+  note      String?
+  total     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("orders")
+}
+
+model Topup {
+  id        String   @id @default(uuid())
+  userId    String
+  amount    Float
+  orderCode String
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("topups")
+}
+
+model ExchangeRequest {
+  id        String   @id @default(uuid())
+  userId    String
+  fullname  String
+  phone     String
+  address   String
+  bookTitle String
+  quantity  Int
+  image     String
+  bcoin     Float?
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("exchange_requests")
 }

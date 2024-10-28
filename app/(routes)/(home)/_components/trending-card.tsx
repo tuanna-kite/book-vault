@@ -12,7 +12,7 @@ const TrendingCard = ({ data }: TrendingCardProps) => {
   return (
     <Link href={`/stores/${data.slug}`} className='block'>
       <div className='bg-gray-100 p-4 flex space-x-8 md:space-x-4 rounded-2xl'>
-        <div className='flex-1 aspect-square bg-black flex justify-center items-center lg:h-36 md:h-30'>
+        <div className='flex-1 aspect-square bg-white flex justify-center items-center lg:h-36 md:h-30'>
           <Image
             src={data.cover!}
             alt={data.title}
@@ -22,7 +22,7 @@ const TrendingCard = ({ data }: TrendingCardProps) => {
           />
         </div>
         <div className='flex-1 flex flex-col justify-end space-y-2 overflow-hidden'>
-          <h3 className='md:text-base lg:text-lg font-semibold w-full'>
+          <h3 className='md:text-base lg:text-lg font-semibold w-full whitespace-nowrap text-ellipsis overflow-hidden'>
             {data.title}
           </h3>
           <p className='text-gray-500 text-sm'>{data.author}</p>

@@ -4,9 +4,9 @@ const steps = ['Điền thông tin', 'Thanh toán & Hoàn tất'];
 
 const StepsHeader = ({ activeStep = 0 }: { activeStep?: number }) => {
   return (
-    <div className='flex items-center space-x-8'>
+    <div className='flex items-center space-x-2 md:space-x-8 max-xs:w-full max-sm:justify-between'>
       {steps.map((step, index) => (
-        <>
+        <React.Fragment key={step}>
           <div key={index} className='flex items-center space-x-3'>
             <span
               className={`w-5 h-5 rounded-full ${
@@ -18,7 +18,7 @@ const StepsHeader = ({ activeStep = 0 }: { activeStep?: number }) => {
             <span
               className={`${
                 index <= activeStep ? 'text-primary' : 'text-gray-400'
-              } text-sm`}
+              } text-xs md:text-sm`}
             >
               {step}
             </span>
@@ -31,7 +31,7 @@ const StepsHeader = ({ activeStep = 0 }: { activeStep?: number }) => {
               } w-12 h-0.5`}
             />
           )}
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
