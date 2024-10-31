@@ -30,22 +30,22 @@ const Procedure = () => {
         <ProcedureItem
           numb={1}
           title='Gửi yêu cầu'
-          content='Lorem ipsum dolor sit amet consectetur. Id volutpat ac feugiat sem massa ut dictum. '
+          content='Người dùng lựa chọn cuốn sách mình muốn trao đổi và gửi yêu cầu qua ứng dụng.'
         />
         <ProcedureItem
           numb={2}
           title='Chờ xử lý'
-          content='Lorem ipsum dolor sit amet consectetur. Id volutpat ac feugiat sem massa ut dictum. '
+          content='Sau khi yêu cầu được gửi đi, hệ thống sẽ tiếp nhận và kiểm tra thông tin, đảm bảo rằng yêu cầu trao đổi là hợp lệ.'
         />
         <ProcedureItem
           numb={3}
           title='Xác nhận trao đổi'
-          content='Lorem ipsum dolor sit amet consectetur. Id volutpat ac feugiat sem massa ut dictum. '
+          content='Sau khi được duyệt, hệ thống sẽ gửi thông báo để người dùng xác nhận trao đổi.'
         />
         <ProcedureItem
           numb={4}
           title='Nhận BCoin'
-          content='Lorem ipsum dolor sit amet consectetur. Id volutpat ac feugiat sem massa ut dictum. '
+          content='Sau khi hoàn tất trao đổi, người dùng sẽ được thưởng BCoin, có thể sử dụng cho các hoạt động trao đổi sách trong lần tiếp theo.'
         />
       </div>
     </div>

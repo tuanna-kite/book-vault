@@ -23,7 +23,6 @@ export async function GET() {
         createdAt: 'desc',
       },
     });
-    console.log(JSON.stringify(orders, null, 2));
 
     return NextResponse.json(orders);
   } catch (error) {

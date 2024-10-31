@@ -6,16 +6,16 @@ import Procedure from './_components/procedure';
 import { fetchHomeData } from '@/actions/home-actions';
 
 export default async function Home() {
-  const { books = [] } = await fetchHomeData();
+  const { trendingBooks = [], popularBooks = [] } = await fetchHomeData();
 
   return (
     <div>
       <Hero />
       <section className='py-10 px-8 xl:px-0'>
         <div className='w-full space-y-4 max-w-5xl mx-auto'>
-          <h2 className='text-3xl'>Trending</h2>
+          <h2 className='text-3xl'>Xu hướng</h2>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-            {books.map((book) => (
+            {trendingBooks.slice(0, 3).map((book) => (
               <TrendingCard key={book.id} data={book} />
             ))}
           </div>
@@ -25,7 +25,7 @@ export default async function Home() {
         <div className='w-full space-y-4 max-w-5xl mx-auto'>
           <h2 className='text-3xl'>Phổ biến</h2>
           <div className='grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8'>
-            {books.map((book) => (
+            {popularBooks.map((book) => (
               <BookCard key={book.id} data={book} />
             ))}
           </div>

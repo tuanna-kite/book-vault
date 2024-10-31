@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const Benefit = () => {
@@ -10,16 +11,20 @@ const Benefit = () => {
         <h2 className='text-3xl font-semibold'>Lợi ích trao đổi sách</h2>
         <div className='space-y-4'>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Commodo senectus proin
-            tortor ut. Tincidunt ante sem neque aliquet hac.
+            <b>Đối với bản thân:</b> Trao đổi sách cũ giúp bạn đọc tiết kiệm chi
+            phí, mở ra cơ hội khám phá nhiều thể loại tác phẩm. Hơn nữa, quá
+            trình trao đổi sách còn giúp mọi người có thể tìm kiếm được những
+            cuốn sách “quý hiếm” đã ngưng xuất bản trên thị trường.
           </p>
           <p>
-            Eu urna scelerisque eget odio scelerisque magna elit. Augue vitae
-            massa in habitasse adipiscing posuere maecenas sed.
+            <b>Đối với cộng đồng người yêu đọc sách:</b> Hoạt động trao đổi sách
+            xây dựng một mạng lưới kết nối mạnh mẽ giữa các độc giả, tạo ra một
+            không gian văn hóa đọc nơi mọi người có thể chia sẻ đam mê và trao
+            đổi kiến thức.
           </p>
         </div>
         <Button size='lg'>
-          Trao đổi sách ngay
+          <Link href='/exchange'>Trao đổi sách ngay</Link>
           <ArrowRight size={20} className='ml-3' />
         </Button>
       </div>

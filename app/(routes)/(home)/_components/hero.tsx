@@ -5,11 +5,11 @@ const Hero = () => {
   return (
     <div className='md:relative w-full bg-hero bg-cover h-[820px] pt-[56px] md:pt-[88px] flex justify-between flex-col'>
       <div className='space-y-4 mt-16'>
-        <p className='text-center text-xl font-light tracking-[1.2rem]'>
-          GET LOST
+        <p className='text-center text-xl font-light tracking-[0.1rem]'>
+          Chào mừng bạn đến với
         </p>
         <h1 className='text-center text-7xl lg:text-9xl font-light'>
-          IN THE BOOKS
+          Book Vault
         </h1>
       </div>
       <div className='w-full flex justify-center md:absolute md:top-1/2 md:transform md:-translate-y-1/2 md:pt-24'>
@@ -17,10 +17,12 @@ const Hero = () => {
       </div>
       <div className='mb-16'>
         <p className='max-w-[544px] text-sm font-light text-center mx-auto'>
-          Lorem ipsum dolor sit amet consectetur. Commodo senectus proin tortor
-          ut. Tincidunt ante sem neque aliquet hac. Eu urna scelerisque eget
-          odio scelerisque magna elit. Augue vitae massa in habitasse adipiscing
-          posuere maecenas sed.
+          Ứng dụng trao đổi sách cũ dễ dàng và tiết kiệm, giúp người dùng tiếp
+          cận nhiều đầu sách phong phú. Ngoài ra, ứng dụng cũng hỗ trợ phát
+          triển thói quen đọc bền vững, giảm thiểu lãng phí giấy và bảo vệ môi
+          trường. Thêm vào đó, người dùng có thể kết nối với những người cùng sở
+          thích, mở rộng mối quan hệ và tạo dựng một cộng đồng chia sẻ tri thức
+          sôi động và đa dạng.
         </p>
       </div>
     </div>

@@ -11,15 +11,15 @@ const ContactPage = () => {
         </div>
         <div>
           <div>
-            <span className='font-medium'>Địa chỉ:</span> 9 Vũ Phạm Hàm, Yên
-            Hòa, Cầu Giấy, Hà Nội
+            <span className='font-medium'>Địa chỉ:</span> Vincom Nguyễn Chí
+            Thanh, Hanoi, Vietnam
           </div>
           <div>
             <span className='font-medium'>Email:</span> info@bookvault.com
           </div>
           <div>
-            <span className='font-medium'>Số điện thoại:</span> (+84) 345 622
-            345
+            <span className='font-medium'>Số điện thoại:</span> (+84) 967 878
+            400
           </div>
         </div>
       </div>

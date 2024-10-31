@@ -16,6 +16,8 @@ export async function getProducts({
   searchBook,
   limit = 9,
 }: FilterProductParams) {
+  console.log(searchBook?.split(' ').join(' & '));
+
   try {
     const books = await db.books.findMany({
       include: {
@@ -35,12 +37,12 @@ export async function getProducts({
           ? [
               {
                 title: {
-                  search: searchBook,
+                  search: searchBook.split(' ').join(' & '),
                 },
               },
               {
                 slug: {
-                  search: searchBook,
+                  search: searchBook.split(' ').join(' & '),
                 },
               },
             ]
